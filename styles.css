@@ -236,6 +236,7 @@ header input {
   .toggle-dark {
     border-color: var(--white);
     color: var(--white);
+    margin-top: 1rem;
   }
 
   .main {
