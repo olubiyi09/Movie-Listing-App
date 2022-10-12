@@ -1,5 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&display=swap");
+/*  */
+:root {
+  --color-light: #eee;
+  --color-dark: #0e1829;
+  --color-orange: #db6400;
 
+  --background: var(--color-light);
+  --foreground: var(--color-dark);
+}
+
+/*  */
 :root {
   --white: #fff;
   --black: #1c2b2d;
@@ -9,6 +19,13 @@
   --color-sec: #db6400;
   --color-grey: #eee;
   --color-dark-grey: #222831;
+
+  --color-light: #eee;
+  --color-dark: #222831;
+  --color-orange: #db6400;
+
+  --background: var(--color-dark);
+  --foreground: var(--color-light);
 }
 
 * {
@@ -42,7 +59,16 @@ img {
 
 /* Start Here */
 body {
-  background: #0e1829;
+  background: var(--background);
+}
+
+.darkmode {
+  --color-light: #eee;
+  --color-dark: #222831;
+  --color-orange: #db6400;
+
+  --background: var(--color-light);
+  --foreground: var(--color-dark);
 }
 
 .main {
@@ -74,23 +100,24 @@ header input {
   background: transparent;
   border-bottom: 1px solid var(--white);
   margin: 2rem 0;
-  color: var(--white);
+  color: var(--foreground);
   font-size: 1.6rem;
   padding: 1rem;
   width: 100%;
 }
 
 ::placeholder {
-  color: var(--webkit-box-shadow);
+  color: var(--white);
 }
 
 /* Movie container start here */
 .movies-container {
   padding: 2rem;
+  color: var(--background);
 }
 
 .movies-container > p {
-  color: var(--white);
+  color: var(--foreground);
   font-size: 2rem;
   margin-bottom: 2rem;
 }
@@ -104,7 +131,7 @@ header input {
 
 .movie {
   display: flex;
-  background: var(--color-grey);
+  background: var(--foreground);
   padding: 1rem;
   width: 41rem;
   border-radius: 3px;
@@ -136,7 +163,7 @@ header input {
   background: var(--color-sec);
   padding: 0 3px;
   border-radius: 3px;
-  color: var(--white);
+  color: var(--foreground);
 }
 
 .overview {
@@ -162,8 +189,35 @@ header input {
   outline: 1px solid #eee;
 }
 
+/* Dark Mode */
+.toggle-dark {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  border: 1px solid;
+  border-radius: 5px;
+  border-color: var(--foreground);
+  color: var(--foreground);
+  padding: 2px 3px;
+  /* margin: 1rem; */
+  cursor: pointer;
+}
+
+.toggle-dark .txt {
+  font-size: 1.6rem;
+  margin-right: 5px;
+}
+
 /* Media Query */
 @media screen and (max-width: 885px) {
+  .toggle-dark {
+    margin: 0;
+  }
+
   header {
     padding: 2rem;
     width: 30%;
@@ -179,6 +233,11 @@ header input {
 }
 
 @media screen and (max-width: 600px) {
+  .toggle-dark {
+    border-color: var(--white);
+    color: var(--white);
+  }
+
   .main {
     flex-direction: column;
   }
@@ -188,8 +247,12 @@ header input {
     width: 100%;
   }
 
+  header h1 {
+    margin-right: 17rem;
+  }
+
   header input {
-    width: 80%;
+    width: 90%;
   }
 
   .movies-container {
@@ -200,5 +263,11 @@ header input {
     padding: 5px;
     width: 35rem;
     margin: 5px 0;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  header h1 {
+    margin-right: 12rem;
   }
 }
